@@ -72,6 +72,6 @@ jobs:
 
       - uses: yumis-coconudge/clean-workspace-action@v1
         with:
-          additional-path: "${{ env.GITHUB_WORKSPACE }}/a.txt,${{ env.GITHUB_WORKSPACE }}/b.txt"
+          additional-path: "~/a.txt,~/b.txt"
 # ...
 ```
