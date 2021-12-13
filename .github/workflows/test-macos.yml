@@ -15,6 +15,7 @@ jobs:
 
       - name: Check files
         run: |
+          ls -1
           if [ "$(ls -1 | wc -l)" -gt "0" ]; then
             echo "Clean workspace failed"
             exit 1
@@ -49,10 +50,12 @@ jobs:
 
       - name: Check files
         run: |
+          ls -a1
           if [ "$(ls -a1 | wc -l)" -gt "2" ]; then
             echo "Clean workspace failed"
             exit 1
           fi
+          ls -a1 ${{ steps.yarn-cache-dir-path.outputs.dir }}
           if [ "$(ls -a1 ${{ steps.yarn-cache-dir-path.outputs.dir }} | wc -l)" -gt "2" ]; then
             echo "Clean additional path failed"
             exit 1
@@ -76,7 +79,8 @@ jobs:
 
       - name: Check files
         run: |
-          if [ "$(ls -1 ~/test | wc -l)" -gt "2" ]; then
+          ls -1 ~/test
+          if [ "$(ls -1 ~/test | wc -l)" -gt "0" ]; then
             echo "Clean additional path failed"
             exit 1
           fi
