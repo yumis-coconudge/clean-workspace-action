@@ -1,0 +1,29 @@
+{
+  "name": "clean-workspace-action",
+  "version": "1.0.0",
+  "description": "Clean workspace",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yumis-coconudge/clean-workspace-action.git"
+  },
+  "keywords": [
+    "github",
+    "action",
+    "clean",
+    "workspace"
+  ],
+  "author": "SeungRyeol Lee",
+  "email": "toy0605@wavle.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yumis-coconudge/clean-workspace-action/issues"
+  },
+  "homepage": "https://github.com/yumis-coconudge/clean-workspace-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  },
+  "type": "module",
+  "devDependencies": {}
+}

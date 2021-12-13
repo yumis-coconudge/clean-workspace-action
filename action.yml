@@ -1,0 +1,9 @@
+name: "Clean Workspace"
+description: "Clean workspace"
+inputs:
+  additional-path:
+    description: "Additional path to clean"
+    required: false
+runs:
+  using: "node16"
+  main: "index.js"
