@@ -5,7 +5,11 @@ import * as path from "path";
 
 export async function cleanAdditionalPath(additionalPathInput: string) {
   const additionalPaths = additionalPathInput.split(",");
-  for (const additionalPath of additionalPaths) {
+  for (const rawAdditionalPath of additionalPaths) {
+    const additionalPath = rawAdditionalPath.replace(
+      /^[~][/]/g,
+      path.join(process.env.HOME ?? "", "/")
+    );
     if (exists(additionalPath) === false) {
       continue;
     }
