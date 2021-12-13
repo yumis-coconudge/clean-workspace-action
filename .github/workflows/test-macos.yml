@@ -1,7 +1,7 @@
 name: Test on MacOS
 on:
   push:
-    branches: [master]
+    branches: [v1]
 jobs:
   basic-test:
     name: Basic Testing
