@@ -41,10 +41,12 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Push release branch.
+      - name: Push
         run: |
           git config --global user.name "Yumis Developer"
           git config --global user.email "yumis-developer@users.noreply.github.com"
           git add --force dist
           yarn version --new-version "${{ github.event.inputs.version }}"
-          git push --follow-tags
+          git checkout -b master origin/master
+          git merge v1
+          git push --all
