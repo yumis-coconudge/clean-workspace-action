@@ -33,7 +33,7 @@ additional-path을 이용하면 워크스페이스와 함께 특정 디렉토리
 action will be ignored for no existed files.  
 존재하지 않은 파일은 무시됩니다.
 
-**CAUTION**: If you make mistake like wrong path. it cannot recoverable. Be careful.  
+**CAUTION**: If you make mistake like wrong path. it cannot be recoverable. Be careful.  
 **경고**: 잘못된 경로를 사용하게되면 복구할 수 없습니다. 조심하세요.
 
 ```yaml

@@ -1,9 +1,12 @@
 {
   "name": "clean-workspace-action",
   "version": "1.0.0",
+  "private": true,
   "description": "Clean workspace",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -o dist"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yumis-coconudge/clean-workspace-action.git"
@@ -23,5 +26,10 @@
   "homepage": "https://github.com/yumis-coconudge/clean-workspace-action#readme",
   "dependencies": {
     "@actions/core": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "@vercel/ncc": "^0.33.0",
+    "typescript": "^4.5.3"
   }
 }
