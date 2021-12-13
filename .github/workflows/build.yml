@@ -14,10 +14,7 @@ jobs:
 
       - name: Change release branch
         run: |
-          git fetch
-          git branch release origin/release
-          git merge --ff-only release
-          git checkout release
+          git checkout -B release
 
       - uses: actions/setup-node@v2
         with:
@@ -47,5 +44,5 @@ jobs:
           git config --global user.email "yumis-developer@users.noreply.github.com"
           git add .
           yarn version --new-version "${{ github.event.inputs.version }}"
-          git push origin release
+          git push --rebase origin release
           git push --tags
