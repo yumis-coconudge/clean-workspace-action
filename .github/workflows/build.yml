@@ -16,7 +16,6 @@ jobs:
         run: |
           git fetch
           git branch release origin/release
-          git fetch origin release:release
           git merge --ff-only release
           git checkout release
 
