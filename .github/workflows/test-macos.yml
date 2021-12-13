@@ -3,8 +3,25 @@ on:
   push:
     branches: [master]
 jobs:
-  test:
-    name: Test
+  basic-test:
+    name: Basic Testing
+    runs-on: macos-11
+    steps:
+      - name: Create dummy file
+        run: |
+          echo "dummy" > dummy.txt
+
+      - uses: yumis-coconudge/clean-workspace-action@v1
+
+      - name: Check files
+        run: |
+          if [ "$(ls -1 | wc -l)" -gt "0" ]; then
+            echo "Clean workspace failed"
+            exit 1
+          fi
+
+  additional-path-directory-test:
+    name: Additional Path(Directory) Testing
     runs-on: macos-11
     steps:
       - uses: yumis-coconudge/clean-workspace-action@v1
@@ -30,6 +47,13 @@ jobs:
         with:
           additional-path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
 
-      - run: |
-          ls -al
-          ls -al "${{ steps.yarn-cache-dir-path.outputs.dir }}"
+      - name: Check files
+        run: |
+          if [ "$(ls -a1 | wc -l)" -gt "2" ]; then
+            echo "Clean workspace failed"
+            exit 1
+          fi
+          if [ "$(ls -a1 ${{ steps.yarn-cache-dir-path.outputs.dir }} | wc -l)" -gt "2" ]; then
+            echo "Clean additional path failed"
+            exit 1
+          fi
