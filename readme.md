@@ -1,6 +1,6 @@
 # Clean Workspace Action
 
-It's cleaning workspace action using JavaScript. It's useful for Self-hosted runner.
+It's cleaning workspace action using JavaScript. It's useful for Self-hosted runner.  
 자바스크립트를 이용한 워크스페이스 비우기 액션입니다. Self-hosted runner에서 사용하기에 유용합니다.
 
 It works any operating system that available for JavaScript environment.  
@@ -29,6 +29,9 @@ jobs:
 
 If you use additional-path, it cleans specific directory or files, and workspace.
 additional-path을 이용하면 워크스페이스와 함께 특정 디렉토리 또는 파일들을 같이 비웁니다.
+
+action will be ignored for no existed files.
+존재하지 않은 파일은 무시됩니다.
 
 **CAUTION**: If you make mistake like wrong path. it cannot recoverable. Be careful.  
 **경고**: 잘못된 경로를 사용하게되면 복구할 수 없습니다. 조심하세요.
