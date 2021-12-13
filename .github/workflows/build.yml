@@ -14,8 +14,8 @@ jobs:
 
       - name: Change release branch
         run: |
-          git fetch
-          git branch -t origin/release
+          git branch release origin/release
+          git fetch origin release:release
           git merge --ff-only release
           git checkout release
 
