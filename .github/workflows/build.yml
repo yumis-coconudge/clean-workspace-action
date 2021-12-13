@@ -44,5 +44,6 @@ jobs:
           git config --global user.email "yumis-developer@users.noreply.github.com"
           git add .
           yarn version --new-version "${{ github.event.inputs.version }}"
-          git push --rebase origin release
+          git pull -u --rebase origin release
+          git push origin release
           git push --tags
