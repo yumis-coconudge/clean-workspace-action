@@ -57,3 +57,26 @@ jobs:
             echo "Clean additional path failed"
             exit 1
           fi
+
+  additional-path-multiple-files-test:
+    name: Additional Path(Multiple Files) Testing
+    runs-on: macos-11
+    steps:
+      - name: Create dummy files
+        run: |
+          cd ~
+          mkdir test
+          cd test
+          echo "dummy" > a.txt
+          echo "dummy" > b.txt
+
+      - uses: yumis-coconudge/clean-workspace-action@v1
+        with:
+          additional-path: "~/test/a.txt,~/test/b.txt"
+
+      - name: Check files
+        run: |
+          if [ "$(ls -1 ~/test | wc -l)" -gt "2" ]; then
+            echo "Clean additional path failed"
+            exit 1
+          fi
