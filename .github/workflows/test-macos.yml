@@ -1,5 +1,7 @@
 name: Test on MacOS
-on: [push]
+on:
+  push:
+    branches: [master]
 jobs:
   test:
     name: Test
@@ -26,7 +28,7 @@ jobs:
 
       - uses: yumis-coconudge/clean-workspace-action@v1
         with:
-          additional-path: "${{ steps.yarn-cache-dir-path.outputs.dir }},${{ env.GITHUB_WORKSPACE }}/readme.md"
+          additional-path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
 
       - run: |
           ls -al

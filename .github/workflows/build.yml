@@ -36,8 +36,11 @@ jobs:
 
       - name: Push release branch.
         run: |
+          git fetch
           git config --global user.name "Yumis Developer"
           git config --global user.email "yumis-developer@users.noreply.github.com"
           git add --force dist
           yarn version --new-version "${{ github.event.inputs.version }}"
+          git branch v1 origin/v1
+          git merge --ff-only v1
           git push --follow-tags
