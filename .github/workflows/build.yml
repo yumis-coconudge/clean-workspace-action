@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: v1
+
+      - name: Merge from master
+        run: |
+          git fetch
+          git merge origin/master
 
       - uses: actions/setup-node@v2
         with:
@@ -36,12 +43,8 @@ jobs:
 
       - name: Push release branch.
         run: |
-          git fetch
           git config --global user.name "Yumis Developer"
           git config --global user.email "yumis-developer@users.noreply.github.com"
           git add --force dist
           yarn version --new-version "${{ github.event.inputs.version }}"
-          git checkout -B v1 origin/v1
-          git pull origin v1
-          git merge master
-          git push --all
+          git push --follow-tags
