@@ -27,10 +27,10 @@ jobs:
 
 ## Advanced Usage
 
-If you use additional-path, it cleans specific directory or files, and workspace.
+If you use additional-path, it cleans specific directory or files, and workspace.  
 additional-path을 이용하면 워크스페이스와 함께 특정 디렉토리 또는 파일들을 같이 비웁니다.
 
-action will be ignored for no existed files.
+action will be ignored for no existed files.  
 존재하지 않은 파일은 무시됩니다.
 
 **CAUTION**: If you make mistake like wrong path. it cannot recoverable. Be careful.  
