@@ -1,5 +1,8 @@
-name: "Clean Workspace"
-description: "Clean workspace"
+name: "Clean Workspace Action"
+description: "Clean workspace using JavaScript"
+branding:
+  icon: delete
+  color: green
 inputs:
   additional-path:
     description: "Additional path to clean"
