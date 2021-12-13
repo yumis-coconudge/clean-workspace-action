@@ -1595,9 +1595,11 @@ const promises_1 = __nccwpck_require__(292);
 const fs_1 = __nccwpck_require__(147);
 const path = __importStar(__nccwpck_require__(17));
 function cleanAdditionalPath(additionalPathInput) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         const additionalPaths = additionalPathInput.split(",");
-        for (const additionalPath of additionalPaths) {
+        for (const rawAdditionalPath of additionalPaths) {
+            const additionalPath = rawAdditionalPath.replace(/^[~][/]/g, path.join((_a = process.env.HOME) !== null && _a !== void 0 ? _a : "", "/"));
             if ((0, fs_1.existsSync)(additionalPath) === false) {
                 continue;
             }
