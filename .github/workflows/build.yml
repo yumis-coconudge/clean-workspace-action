@@ -48,3 +48,4 @@ jobs:
           git add .
           yarn version --new-version "${{ github.event.inputs.version }}"
           git push origin release
+          git push --tags
