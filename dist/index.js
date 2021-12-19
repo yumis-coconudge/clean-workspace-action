@@ -4967,7 +4967,7 @@ function cleanAdditionalPath(additionalPathInput) {
         const homePath = os.homedir();
         const additionalPaths = additionalPathInput.split(",");
         for (const rawAdditionalPath of additionalPaths) {
-            const tempPath = path.join(rawAdditionalPath.replace(/^[~]/g, ""), homePath);
+            const tempPath = rawAdditionalPath.replace(/^[~][/]/g, path.join(homePath !== null && homePath !== void 0 ? homePath : "", "/"));
             const globPaths = (0, glob_1.sync)(tempPath);
             for (const additionalPath of globPaths) {
                 if ((0, fs_1.existsSync)(additionalPath) === false) {
