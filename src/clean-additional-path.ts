@@ -9,9 +9,9 @@ export async function cleanAdditionalPath(additionalPathInput: string) {
   const homePath = os.homedir();
   const additionalPaths = additionalPathInput.split(",");
   for (const rawAdditionalPath of additionalPaths) {
-    const tempPath = path.join(
-      rawAdditionalPath.replace(/^[~]/g, ""),
-      homePath
+    const tempPath = rawAdditionalPath.replace(
+      /^[~][/]/g,
+      path.join(homePath ?? "", "/")
     );
     const globPaths = glob(tempPath);
     for (const additionalPath of globPaths) {
