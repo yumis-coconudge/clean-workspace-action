@@ -6,7 +6,7 @@ on:
 jobs:
   basic-test:
     name: Basic Testing
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
       - name: Create dummy file
         run: |
@@ -24,7 +24,7 @@ jobs:
 
   additional-path-directory-test:
     name: Additional Path(Directory) Testing
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
       - uses: yumis-coconudge/clean-workspace-action@v1
 
@@ -64,7 +64,7 @@ jobs:
 
   additional-path-multiple-files-test:
     name: Additional Path(Multiple Files) Testing
-    runs-on: macos-11
+    runs-on: macos-latest
     steps:
       - name: Create dummy files
         run: |
