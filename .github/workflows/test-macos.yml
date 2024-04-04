@@ -1,9 +1,7 @@
 name: Test on MacOS
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - v1
+
 jobs:
   basic-test:
     name: Basic Testing
@@ -13,7 +11,7 @@ jobs:
         run: |
           echo "dummy" > dummy.txt
 
-      - uses: yumis-coconudge/clean-workspace-action@v1
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
 
       - name: Check files
         run: |
@@ -27,15 +25,15 @@ jobs:
     name: Additional Path(Directory) Testing
     runs-on: macos-latest
     steps:
-      - uses: yumis-coconudge/clean-workspace-action@v1
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4.1.1
 
       - name: Get yarn cache directory
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - uses: actions/cache@v2
+      - uses: actions/cache@v4
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -46,7 +44,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - uses: yumis-coconudge/clean-workspace-action@v1
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
         with:
           additional-path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
 
@@ -75,7 +73,7 @@ jobs:
           echo "dummy" > a.txt
           echo "dummy" > b.txt
 
-      - uses: yumis-coconudge/clean-workspace-action@v1
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
         with:
           additional-path: "~/test/a.txt,~/test/b.txt"
 

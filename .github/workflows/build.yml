@@ -19,21 +19,10 @@ jobs:
           git fetch
           git merge origin/master
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4.0.2
         with:
           node-version: "20"
-
-      - name: Get yarn cache directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v4
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn
