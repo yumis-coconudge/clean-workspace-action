@@ -2,7 +2,6 @@ name: Test on MacOS
 on:
   workflow_dispatch:
   push:
-    branches: [v1]
 jobs:
   basic-test:
     name: Basic Testing
