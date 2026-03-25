@@ -17,7 +17,7 @@ jobs:
     name: Some build
     runs-on: macos-latest
     steps:
-      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.7
 # ...
 ```
 
@@ -40,7 +40,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       # Clean workspace and Clean yarn cache
-      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.7
         with:
           additional-path: "${{ steps.yarn-cache-dir-path.outputs.dir }}"
 # ...
@@ -61,7 +61,7 @@ jobs:
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
-      - uses: yumis-coconudge/clean-workspace-action@v1.0.6
+      - uses: yumis-coconudge/clean-workspace-action@v1.0.7
         with:
           additional-path: "~/a.txt,~/b.txt"
 # ...
