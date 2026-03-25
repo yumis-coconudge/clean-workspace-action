@@ -8,9 +8,9 @@ on:
 jobs:
   build:
     name: Build and Push
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.1
+      - uses: actions/checkout@v6
         with:
           ref: v1
 
@@ -19,13 +19,16 @@ jobs:
           git fetch
           git merge origin/master
 
-      - uses: actions/setup-node@v4.0.2
+      - uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "yarn"
 
       - name: Install dependencies
-        run: yarn
+        run: |
+          npm install -g corepack
+          corepack enable yarn
+          yarn
 
       - name: Build
         run: yarn build
